@@ -140,8 +140,9 @@ macro_rules! locked_kernel {
                         "GPU acquired by a high priority process! Freeing up {} kernels...",
                         $name
                     );
-                    self.gpu_lock.take();
                 }
+                // The lock is released if it is dropped.
+                self.gpu_lock.take();
             }
 
             pub fn with<F, R>(&mut self, mut f: F) -> GPUResult<R>
