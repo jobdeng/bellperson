@@ -94,3 +94,8 @@ harness = false
 members = [
   "verifier-bench"
 ]
+
+
+# patch dependencies
+[patch.crates-io]
+rust-gpu-tools = { git = "https://github.com/jobdeng/rust-gpu-tools", branch = "job/v0.5.0" }
